@@ -6,13 +6,19 @@ from langgraph.graph import StateGraph, START, END
 
 # from dotenv import load_dotenv
 from langchain_aws import ChatBedrock   
-# import os
+import os
 
 # load_dotenv()
 
-# os.environ['LANGSMITH_TRACING_V2'] = "true"
-# os.environ['LANGSMITH_API_KEY'] = os.getenv("LANGSMITH_API_KEY")
+# Load AWS credentials from secrets
+aws_access_key_id = st.secrets["aws"]["aws_access_key_id"]
+aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"]
+region_name = st.secrets["aws"]["region_name"]
 
+# Set environment variables for boto3 to use
+os.environ["AWS_ACCESS_KEY_ID"] = aws_access_key_id
+os.environ["AWS_SECRET_ACCESS_KEY"] = aws_secret_access_key
+os.environ["AWS_REGION"] = region_name  # VERY IMPORTANT
 
 llm = ChatBedrock(
     model_id="anthropic.claude-3-sonnet-20240229-v1:0",
