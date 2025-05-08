@@ -20,6 +20,7 @@ region_name = st.secrets["aws"]["region_name"]
 os.environ["AWS_ACCESS_KEY_ID"] = aws_access_key_id
 os.environ["AWS_SECRET_ACCESS_KEY"] = aws_secret_access_key
 os.environ["AWS_REGION"] = region_name  # VERY IMPORTANT
+os.environ["TAVILY_API_KEY"] = st.secrets["TAVILY_API_KEY"]
 
 llm = ChatBedrock(
     model_id="anthropic.claude-3-sonnet-20240229-v1:0",
@@ -66,7 +67,7 @@ retriever_tool = create_retriever_tool(
     "langsmith_search",
     "Search for information about LangSmith. For any questions about LangSmith, you must use this tool!",
 )
-search = TavilySearchResults(max_results=2)
+search = TavilySearchResults(max_results=2,tavily_api_key=st.secrets["TAVILY_API_KEY"])
 tools = [search, retriever_tool]
 
 # Bind tools to LLM (define llm if not done already)
