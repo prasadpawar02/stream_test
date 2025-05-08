@@ -4,14 +4,14 @@ from typing_extensions import Annotated, TypedDict, List
 from langgraph.graph.message import add_messages
 from langgraph.graph import StateGraph, START, END
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain_aws import ChatBedrock   
-import os
+# import os
 
-load_dotenv()
+# load_dotenv()
 
-os.environ['LANGSMITH_TRACING_V2'] = "true"
-os.environ['LANGSMITH_API_KEY'] = os.getenv("LANGSMITH_API_KEY")
+# os.environ['LANGSMITH_TRACING_V2'] = "true"
+# os.environ['LANGSMITH_API_KEY'] = os.getenv("LANGSMITH_API_KEY")
 
 
 llm = ChatBedrock(
