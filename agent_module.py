@@ -15,12 +15,14 @@ import os
 aws_access_key_id = st.secrets["aws"]["aws_access_key_id"]
 aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"]
 region_name = st.secrets["aws"]["region_name"]
+tavily_api_key = st.secrets["TAVILY_API_KEY"]
 
 # Set environment variables for boto3 to use
 os.environ["AWS_ACCESS_KEY_ID"] = aws_access_key_id
 os.environ["AWS_SECRET_ACCESS_KEY"] = aws_secret_access_key
 os.environ["AWS_REGION"] = region_name  # VERY IMPORTANT
-os.environ["TAVILY_API_KEY"] = st.secrets["TAVILY_API_KEY"]
+os.environ["TAVILY_API_KEY"] = tavily_api_key
+
 
 llm = ChatBedrock(
     model_id="anthropic.claude-3-sonnet-20240229-v1:0",
