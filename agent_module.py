@@ -18,6 +18,7 @@ llm = ChatBedrock(
     model_id="anthropic.claude-3-sonnet-20240229-v1:0",
     temperature=0,
     max_tokens=None,
+    region="us-east-1"
     # other params...
 )
 
