@@ -15,7 +15,7 @@ import os
 aws_access_key_id = st.secrets["aws"]["aws_access_key_id"]
 aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"]
 region_name = st.secrets["aws"]["region_name"]
-tavily_api_key = st.secrets["TAVILY_API_KEY"]
+tavily_api_key = st.secrets["TAVILY"]["API_KEY"]
 
 # Set environment variables for boto3 to use
 os.environ["AWS_ACCESS_KEY_ID"] = aws_access_key_id
