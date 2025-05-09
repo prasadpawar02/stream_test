@@ -69,7 +69,7 @@ retriever_tool = create_retriever_tool(
     "langsmith_search",
     "Search for information about LangSmith. For any questions about LangSmith, you must use this tool!",
 )
-search = TavilySearchResults(max_results=2,tavily_api_key=st.secrets["TAVILY_API_KEY"])
+search = TavilySearchResults(max_results=2,tavily_api_key=st.secrets["TAVILY"]["TAVILY_API_KEY"])
 tools = [search, retriever_tool]
 
 # Bind tools to LLM (define llm if not done already)
